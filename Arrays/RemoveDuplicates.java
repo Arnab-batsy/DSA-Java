@@ -1,21 +1,16 @@
 package Practice.Sheet;
 
 public class RemoveDuplicates {
-        public int removeDuplicates(int[] A) {
-            if (A.length < 2)
-                return A.length;
-
-            int j = 0;
-            int i = 1;
-
-            while (i < A.length) {
-                if (A[i] != A[j]) {
-                    j++;
-                    A[j] = A[i];
-                }
-
-                i++;
+    public int removeDuplicates(int[] nums) {
+        if(nums.length==0) return 0;
+        int index=1;
+        //Index where unique characters will be inserted at
+        for(int i=0;i<nums.length-1;i++){
+            if(nums[i]<nums[i+1]){
+                nums[index]=nums[i+1]; //placing the unique
+                index++; //Increases only when array in increasing
             }
-
-            return j + 1;}
+        }
+        return index;
+    }
     }
